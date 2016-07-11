@@ -4,7 +4,8 @@ public class Power {
 	public static void main(String[] args) throws Exception {
 		Power test = new Power();
 		System.out.println(test.equal(0.0, 0.0));
-		System.out.println(test.power(0, -1));
+		System.out.println(test.power(2, 32));
+		
 	}
 	public double power(double base,int exponent) throws Exception{
 		double result = 0.0;
@@ -12,9 +13,11 @@ public class Power {
 			throw new Exception("0的负数次幂没有意义");
 		}
 		if(exponent<0){
-			result = 1/absExponentPower(base, -exponent);
+			//result = 1/absExponentPower(base, -exponent);
+			result = 1/powerOlogn(base, -exponent);
 		}else{
-			result = absExponentPower(base, exponent);
+			//result = absExponentPower(base, exponent);
+			result = powerOlogn(base, exponent);
 		}
 		return result;
 		
@@ -26,6 +29,20 @@ public class Power {
 		double result = 1.0;
 		for(int i=0;i<exponent;i++ ){
 			result *=base;
+		}
+		return result;
+	}
+	public double powerOlogn(double base,int exponent){
+		if(exponent ==0){
+			return 1;
+		}
+		if(exponent==1){
+			return base;
+		}
+		double result = powerOlogn(base, exponent >>1);
+		result *= result;
+		if((exponent&0x1)==1){
+			result *= base;
 		}
 		return result;
 	}
