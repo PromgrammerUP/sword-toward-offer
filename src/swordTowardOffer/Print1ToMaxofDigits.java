@@ -3,7 +3,7 @@ package swordTowardOffer;
 public class Print1ToMaxofDigits {
 	public static void main(String[] args) {
 		Print1ToMaxofDigits test = new Print1ToMaxofDigits();
-		test.printToMaxofDigits(2);
+		test.printToMaxofDigits(3);
 	}
 	public void printToMaxofDigits(int n){
 		int [] array = new int[n];
@@ -31,7 +31,7 @@ public class Print1ToMaxofDigits {
 						}
 					}
 				}
-				System.out.println();
+				System.out.print(" ");
 				return;
 			}
 		}
