@@ -1,7 +1,7 @@
 package swordTowardOffer;
 
 public class BinaryTreeNode {
-	public  static int value;
+	public  int value;
 	public BinaryTreeNode leftNode;
 	public BinaryTreeNode rightNode;
 }
